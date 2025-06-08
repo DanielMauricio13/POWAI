@@ -26,6 +26,7 @@ struct NutritionView: View {
     @State var Protein: Int = 0
 
     @State var reload = true
+    @State private var showScanner = false
     
     
     var body: some View {
@@ -133,7 +134,13 @@ struct NutritionView: View {
                                 }label: {
                                     Text("Custom").font(.title3).foregroundStyle(Color.white).background(RoundedRectangle(cornerRadius: 90).foregroundStyle(Color.accentColor).frame(width: 150, height: 50) ).padding(.bottom)
                                 }
-                                Spacer(minLength: 150)
+                                Spacer()
+                                Button(action: {
+                                    showScanner = true
+                                }) {
+                                    Image(systemName: "barcode.viewfinder").foregroundStyle(Color.white).frame(width: 40, height: 40)
+                                }
+                                Spacer(minLength: 70)
                                 Button(action: {
                                     if buttonPressed2{
                                         tempFood = Food(Name: newItemName, Calories: Calories, Sugars: Sugar, Carbohydrates: Carbs, Protein: Protein)
@@ -168,7 +175,15 @@ struct NutritionView: View {
                         .scrollContentBackground(.hidden)
                         .onAppear {
                             items = persistenceManager.loadItems()
-                            
+
+                        }
+                        .sheet(isPresented: $showScanner) {
+                            BarcodeScannerView { code in
+                                Task {
+                                    await handleBarcode(code)
+                                }
+                                showScanner = false
+                            }
                         }
                     }
                 }
@@ -453,7 +468,22 @@ func extractFood(from response: String) async throws{
             }
         }
     }
-   
+
+}
+
+func handleBarcode(_ code: String) async {
+    do {
+        let food = try await BarcodeService.fetchFood(for: code)
+        tempFood = food
+        addItem()
+        HealthManager.shared.calories += food.Calories
+        HealthManager.shared.sugars += food.Sugars
+        HealthManager.shared.protein += food.Protein
+        HealthManager.shared.carbs += food.Carbohydrates
+        buttonPressed = false
+    } catch {
+        print("Barcode error: \(error)")
+    }
 }
 }
 
