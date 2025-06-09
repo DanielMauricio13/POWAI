@@ -11,6 +11,7 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> ScannerViewController {
         let controller = ScannerViewController()
         controller.delegate = context.coordinator
+        context.coordinator.controller = controller
         return controller
     }
 
@@ -18,15 +19,24 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
 
     class Coordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         var completion: (String) -> Void
+        weak var controller: ScannerViewController?
+        private var lastScanDate: Date?
+        private let cooldown: TimeInterval = 10
 
         init(completion: @escaping (String) -> Void) {
             self.completion = completion
         }
 
         func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+            guard Date().timeIntervalSince(lastScanDate ?? .distantPast) >= cooldown else { return }
+            lastScanDate = Date()
             if let obj = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
                let code = obj.stringValue {
-                completion(code)
+                controller?.captureSession.stopRunning()
+                output.setMetadataObjectsDelegate(nil, queue: nil)
+                DispatchQueue.main.async { [completion] in
+                    completion(code)
+                }
             }
         }
     }
