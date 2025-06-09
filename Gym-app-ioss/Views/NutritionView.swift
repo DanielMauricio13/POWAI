@@ -180,12 +180,15 @@ struct NutritionView: View {
 
                         }
                         .sheet(isPresented: $showScanner) {
-                            BarcodeScannerView { code in
-                                Task {
-                                    await handleBarcode(code)
+                            BarcodeScannerView(
+                                onCancel: { showScanner = false },
+                                completion: { code in
+                                    Task {
+                                        await handleBarcode(code)
+                                    }
+                                    showScanner = false
                                 }
-                                showScanner = false
-                            }
+                            )
                         }
                         .alert("Barcode Error", isPresented: $showBarcodeError) {
                             Button("OK", role: .cancel) {}
