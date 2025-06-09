@@ -264,12 +264,22 @@ struct NutritionView: View {
   
   
     private func addItem() {
-            guard !newItemName.isEmpty else { return }
-        
-            items.append(tempFood ?? Food(Name: "failed", Calories: 1, Sugars: 1, Carbohydrates: 1, Protein: 1))
-            persistenceManager.saveItems(items: items)
-            
-        }
+        guard let food = tempFood else { return }
+
+        items.append(food)
+        persistenceManager.saveItems(items: items)
+
+        viewModel.items.append(
+            ExcListItem(
+                title: food.Name,
+                description: "This food with this portion has approx: \(food.Calories) calories, \(food.Protein)g of protein, \(food.Carbohydrates) Carbs, \(food.Sugars)g of sugars",
+                totalCalories: 0,
+                duration: 0,
+                NumExcersises: 0
+            )
+        )
+
+    }
      func deleteItems(at offsets: IndexSet) {
             items.remove(atOffsets: offsets)
          if HealthManager.shared.calories < 0{
