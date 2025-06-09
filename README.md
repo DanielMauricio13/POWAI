@@ -11,10 +11,8 @@ PowAI is a Swift-based iOS fitness application that uses generative AI to build 
 - **Daily goal tracking** for calories and macronutrients.
 
 ## Getting Started
-1. Clone this repository and open `Gym-app-ioss.xcodeproj` in Xcode.
-2. Add your Google Generative AI API key in `GenerativeAi-Info.plist`.
-3. Build and run on an iOS device or simulator.
-4. Sign up with your email, set your goals and start training!
+1. Build and run on an iOS device or simulator.
+2. Sign up with your email, set your goals and start training!
 
 ## Workouts
 After logging in your personalized routine is displayed on the main screen. Selecting a workout shows each exercise with sets, reps and estimated calories. Begin the session to activate the Live Activity timer and track your progress.
