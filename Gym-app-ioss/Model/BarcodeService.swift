@@ -10,16 +10,24 @@ struct ProductInfo: Codable {
 }
 
 struct Nutriments: Codable {
-    let energy_kcal: Double?
-    let proteins: Double?
-    let carbohydrates: Double?
-    let sugars: Double?
+    let energyKcalServing: Double?
+    let energyKcal100g: Double?
+    let proteinsServing: Double?
+    let proteins100g: Double?
+    let carbohydratesServing: Double?
+    let carbohydrates100g: Double?
+    let sugarsServing: Double?
+    let sugars100g: Double?
 
     enum CodingKeys: String, CodingKey {
-        case energy_kcal = "energy-kcal_100g"
-        case proteins = "proteins_100g"
-        case carbohydrates = "carbohydrates_100g"
-        case sugars = "sugars_100g"
+        case energyKcalServing = "energy-kcal_serving"
+        case energyKcal100g = "energy-kcal_100g"
+        case proteinsServing = "proteins_serving"
+        case proteins100g = "proteins_100g"
+        case carbohydratesServing = "carbohydrates_serving"
+        case carbohydrates100g = "carbohydrates_100g"
+        case sugarsServing = "sugars_serving"
+        case sugars100g = "sugars_100g"
     }
 }
 
@@ -39,10 +47,10 @@ class BarcodeService {
         guard let product = result.product else { throw BarcodeServiceError.productNotFound }
         let name = product.product_name ?? "Unknown"
         let nutriments = product.nutriments
-        let calories = Int(nutriments?.energy_kcal ?? 0)
-        let protein = Int(nutriments?.proteins ?? 0)
-        let carbs = Int(nutriments?.carbohydrates ?? 0)
-        let sugars = Int(nutriments?.sugars ?? 0)
+        let calories = Int(nutriments?.energyKcalServing ?? nutriments?.energyKcal100g ?? 0)
+        let protein = Int(nutriments?.proteinsServing ?? nutriments?.proteins100g ?? 0)
+        let carbs = Int(nutriments?.carbohydratesServing ?? nutriments?.carbohydrates100g ?? 0)
+        let sugars = Int(nutriments?.sugarsServing ?? nutriments?.sugars100g ?? 0)
         return Food(Name: name, Calories: calories, Sugars: sugars, Carbohydrates: carbs, Protein: protein)
     }
 }
