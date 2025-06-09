@@ -2,15 +2,18 @@ import SwiftUI
 import AVFoundation
 
 struct BarcodeScannerView: UIViewControllerRepresentable {
+    var onCancel: () -> Void
     var completion: (String) -> Void
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(completion: completion)
+        Coordinator(onCancel: onCancel, completion: completion)
     }
 
     func makeUIViewController(context: Context) -> ScannerViewController {
         let controller = ScannerViewController()
         controller.delegate = context.coordinator
+        controller.cancelAction = { context.coordinator.cancel() }
+        context.coordinator.controller = controller
         return controller
     }
 
@@ -18,15 +21,34 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
 
     class Coordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         var completion: (String) -> Void
+        var onCancel: () -> Void
+        weak var controller: ScannerViewController?
+        private var lastScanDate: Date?
+        /// Prevents scanning the same code repeatedly within the cooldown window.
+        private let cooldown: TimeInterval = 10
 
-        init(completion: @escaping (String) -> Void) {
+        init(onCancel: @escaping () -> Void, completion: @escaping (String) -> Void) {
+            self.onCancel = onCancel
             self.completion = completion
         }
 
+        func cancel() {
+            controller?.captureSession.stopRunning()
+            DispatchQueue.main.async { [onCancel] in
+                onCancel()
+            }
+        }
+
         func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+            guard Date().timeIntervalSince(lastScanDate ?? .distantPast) >= cooldown else { return }
+            lastScanDate = Date()
             if let obj = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
                let code = obj.stringValue {
-                completion(code)
+                controller?.captureSession.stopRunning()
+                output.setMetadataObjectsDelegate(nil, queue: nil)
+                DispatchQueue.main.async { [completion] in
+                    completion(code)
+                }
             }
         }
     }
@@ -36,6 +58,7 @@ class ScannerViewController: UIViewController {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     weak var delegate: AVCaptureMetadataOutputObjectsDelegate?
+    var cancelAction: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +75,23 @@ class ScannerViewController: UIViewController {
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
+        let cancelButton = UIButton(type: .system)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setTitleColor(.white, for: .normal)
+        cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+        view.addSubview(cancelButton)
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
+        ])
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.captureSession.startRunning()
         }
+    }
+
+    @objc private func cancelTapped() {
+        cancelAction?()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
