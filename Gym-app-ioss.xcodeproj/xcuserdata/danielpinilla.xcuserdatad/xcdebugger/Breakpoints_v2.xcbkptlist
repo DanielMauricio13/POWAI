@@ -224,8 +224,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "246"
             endingLineNumber = "246"
-            landmarkName = "deleteItems(at:)"
-            landmarkType = "7">
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,7 +288,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "429"
             endingLineNumber = "429"
-            landmarkName = "extractFood(from:)"
+            landmarkName = "geminii()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -482,36 +482,6 @@
             endingLineNumber = "109"
             landmarkName = "WorkOutWindow_Previews"
             landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "D9DD4E4A-D6CE-4F7F-9159-2B661D3DEA0B - ca1e5f2ccd727546"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 @Swift.MainActor () -&gt; () in closure #3 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Spacer)&gt;&gt;, SwiftUI.ScrollView&lt;SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;&gt;, SwiftUI.Text, SwiftUI.Spacer, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer)&gt;&gt;, SwiftUI.Spacer)&gt; in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;Gym_app_ioss.StaringWorkWindow, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Spacer)&gt;&gt;, SwiftUI.ScrollView&lt;SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;&gt;, SwiftUI.Text, SwiftUI.Spacer, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer)&gt;&gt;, SwiftUI.Spacer)&gt;&gt;&gt; in Gym_app_ioss.WorkOutWindow.body.getter : some"
-                  moduleName = "Gym-app-ioss.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/danielpinilla/projects/GYM/GymIOS%20copy/Gym-app-ioss/Views/WorkOutWindow.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83">
-               </Location>
-               <Location
-                  uuid = "D9DD4E4A-D6CE-4F7F-9159-2B661D3DEA0B - ff79aad5e6d202ac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0 in closure #3 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Spacer)&gt;&gt;, SwiftUI.ScrollView&lt;SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;&gt;, SwiftUI.Text, SwiftUI.Spacer, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer)&gt;&gt;, SwiftUI.Spacer)&gt; in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;Gym_app_ioss.StaringWorkWindow, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Spacer)&gt;&gt;, SwiftUI.ScrollView&lt;SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0&gt;&gt;, SwiftUI.Text, SwiftUI.Spacer, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(_: &#x3c4;_1_0, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0&gt;, SwiftUI.Spacer)&gt;&gt;, SwiftUI.Spacer)&gt;&gt;&gt; in Gym_app_ioss.WorkOutWindow.body.getter : some"
-                  moduleName = "Gym-app-ioss.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/danielpinilla/projects/GYM/GymIOS%20copy/Gym-app-ioss/Views/WorkOutWindow.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -550,7 +520,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2C4746BD-0D55-4088-B66D-B6BEEFE60D25"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Gym-app-ioss/Views/NutritionView.swift"
@@ -566,7 +536,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "477B360F-9F20-42B3-ADA8-22926D60440E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Gym-app-ioss/Views/NutritionView.swift"
@@ -590,8 +560,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
             endingLineNumber = "32"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "NutritionView"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -606,8 +576,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "243"
             endingLineNumber = "243"
-            landmarkName = "addItem()"
-            landmarkType = "7">
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
