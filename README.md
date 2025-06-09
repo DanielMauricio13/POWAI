@@ -7,6 +7,7 @@ PowAI is a Swift-based iOS fitness application that uses generative AI to build 
 - **AI-generated workouts** based on your fitness level, location and time available.
 - **Live Activities** and notifications to monitor rest periods during workouts.
 - **Food tracking** powered by generative AI to estimate calories, protein, carbs and sugars.
+- **Barcode scanning** to instantly log nutritional info from packaged foods.
 - **Daily goal tracking** for calories and macronutrients.
 
 ## Getting Started
@@ -22,7 +23,7 @@ After logging in your personalized routine is displayed on the main screen. Sele
 ![Workout detail](https://github.com/user-attachments/assets/6ca7773b-c59a-4e18-b257-5dd5870fbe9e)
 
 ## Nutrition
-Enter any food item and PowAI will retrieve its nutritional content. Your current intake is compared against the daily targets provided by the AI.
+Enter any food item or scan its barcode and PowAI will retrieve the nutritional content. Your current intake is compared against the daily targets provided by the AI.
 
 ![Food entry](https://github.com/user-attachments/assets/0a37e332-9fd1-4348-be5d-e5fa6ca51904)
 ![Daily goal progress](https://github.com/user-attachments/assets/98997647-36b1-436a-b79e-19ddac21bb31)
