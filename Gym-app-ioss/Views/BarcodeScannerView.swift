@@ -24,6 +24,7 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
         var onCancel: () -> Void
         weak var controller: ScannerViewController?
         private var lastScanDate: Date?
+        /// Prevents scanning the same code repeatedly within the cooldown window.
         private let cooldown: TimeInterval = 10
 
         init(onCancel: @escaping () -> Void, completion: @escaping (String) -> Void) {
