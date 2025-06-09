@@ -27,6 +27,8 @@ struct NutritionView: View {
 
     @State var reload = true
     @State private var showScanner = false
+    @State private var showBarcodeError = false
+    @State private var barcodeErrorMessage = ""
     
     
     var body: some View {
@@ -185,6 +187,11 @@ struct NutritionView: View {
                                 showScanner = false
                             }
                         }
+                        .alert("Barcode Error", isPresented: $showBarcodeError) {
+                            Button("OK", role: .cancel) {}
+                        } message: {
+                            Text(barcodeErrorMessage)
+                        }
                     }
                 }
         else{
@@ -247,17 +254,32 @@ struct NutritionView: View {
                
                 
             }
+            .alert("Barcode Error", isPresented: $showBarcodeError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(barcodeErrorMessage)
+            }
         }
     }
   
   
     private func addItem() {
-            guard !newItemName.isEmpty else { return }
-        
-            items.append(tempFood ?? Food(Name: "failed", Calories: 1, Sugars: 1, Carbohydrates: 1, Protein: 1))
-            persistenceManager.saveItems(items: items)
-            
-        }
+        guard let food = tempFood else { return }
+
+        items.append(food)
+        persistenceManager.saveItems(items: items)
+
+        viewModel.items.append(
+            ExcListItem(
+                title: food.Name,
+                description: "This food with this portion has approx: \(food.Calories) calories, \(food.Protein)g of protein, \(food.Carbohydrates) Carbs, \(food.Sugars)g of sugars",
+                totalCalories: 0,
+                duration: 0,
+                NumExcersises: 0
+            )
+        )
+
+    }
      func deleteItems(at offsets: IndexSet) {
             items.remove(atOffsets: offsets)
          if HealthManager.shared.calories < 0{
@@ -483,6 +505,8 @@ func handleBarcode(_ code: String) async {
         buttonPressed = false
     } catch {
         print("Barcode error: \(error)")
+        barcodeErrorMessage = error.localizedDescription
+        showBarcodeError = true
     }
 }
 }
