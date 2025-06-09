@@ -27,6 +27,8 @@ struct NutritionView: View {
 
     @State var reload = true
     @State private var showScanner = false
+    @State private var showBarcodeError = false
+    @State private var barcodeErrorMessage = ""
     
     
     var body: some View {
@@ -185,6 +187,11 @@ struct NutritionView: View {
                                 showScanner = false
                             }
                         }
+                        .alert("Barcode Error", isPresented: $showBarcodeError) {
+                            Button("OK", role: .cancel) {}
+                        } message: {
+                            Text(barcodeErrorMessage)
+                        }
                     }
                 }
         else{
@@ -246,6 +253,11 @@ struct NutritionView: View {
                
                
                 
+            }
+            .alert("Barcode Error", isPresented: $showBarcodeError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(barcodeErrorMessage)
             }
         }
     }
@@ -483,6 +495,8 @@ func handleBarcode(_ code: String) async {
         buttonPressed = false
     } catch {
         print("Barcode error: \(error)")
+        barcodeErrorMessage = error.localizedDescription
+        showBarcodeError = true
     }
 }
 }
