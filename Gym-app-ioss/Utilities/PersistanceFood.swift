@@ -23,6 +23,8 @@ class PersistenceManager {
     func loadItems() -> [Food] {
         guard let savedDate = userDefaults.object(forKey: dateKey) as? Date else { return [] }
         
+        
+        
         // Get the current date
         let currentDate = Date()
         
