@@ -66,6 +66,11 @@
             value = "AIzaSyD_X7ymdkDp0goekMxVfD3lOsO1yTGSgkU"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "GENERATIVEAI_API_KEY"
+            value = "AIzaSyD_X7ymdkDp0goekMxVfD3lOsO1yTGSgkU"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
