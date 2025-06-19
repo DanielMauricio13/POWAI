@@ -41,15 +41,15 @@ struct finalData: View {
     var whereWork : String
     var level: String
     @State var pres: Bool  = false
-    
+    @State var isAgreed:Bool = true
     @State var water: Double?
-    
+    @State var isChecked:Bool = false
     @State private var selectedWeightUnit = "Kg"
        @State private var selectedHeightUnit = "cm"
        let weightOptions = ["Kg", "lb"]
        let heightOptions = ["cm", "Ft + in"]
        
-      
+    @State var hasAgreed:Bool = true
     
     var body: some View {
     
@@ -60,6 +60,42 @@ struct finalData: View {
         }
         else if pres == true{
             LoadingView()
+        }
+        else if isAgreed == false {
+            ZStack{
+                LinearGradient(colors: [Color.blue.opacity(0.7),Color.purple.opacity(0.7)],startPoint: .topLeading,endPoint: .bottomTrailing).ignoresSafeArea()
+                Circle().frame(width: 300).foregroundStyle(Color.blue.opacity(0.3)).blur(radius: 10).offset(x: -10, y: -150)
+                Circle().frame(width: 300).foregroundStyle(Color.white.opacity(0.3)).blur(radius: 10).offset(x: 10, y: 250)
+                VStack{
+                    HStack{
+                      
+                        
+                        Button(action: {
+                            isChecked.toggle()
+                                }) {
+                                    HStack {
+                                        Image(systemName: isChecked ? "checkmark.square" : "square")
+                                            .foregroundColor(.blue)
+                                        Text("I agree to the")
+                                        NavigationLink(destination: Terms_of_Use()){
+                                            Text("Privacy Policy").bold().underline()
+                                        }
+                                    }
+                                }
+                                .buttonStyle(.plain)
+                        
+                    }
+                    
+                    Button{
+                        if isChecked{
+                            pres = true
+                            Task{ try await geminii()}
+                        }
+                    }label: {
+                        Text("Create account ").foregroundColor(.white).font(.title).background(Rectangle().clipShape(.buttonBorder)).padding(.top)
+                    }
+                }
+            }
         }
         else{
             ZStack{
@@ -161,8 +197,7 @@ struct finalData: View {
                     //                        Text("Create account \(firstName)").foregroundColor(.white).font(.title)
                     //                    }
                     Button{
-                        pres = true
-                        Task{ try await geminii()}
+                        isAgreed = false
                     }label: {
                         Text("Create account").foregroundColor(.white).font(.title).fontDesign(.rounded).bold()
                     }

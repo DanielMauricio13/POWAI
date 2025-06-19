@@ -53,6 +53,7 @@
 		43CDA0372AA56D74000BCA3B /* LogedInUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CDA0362AA56D74000BCA3B /* LogedInUser.swift */; };
 		43D59B1D2DDA6E8500250F98 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 43D59B1C2DDA6E8500250F98 /* RiveRuntime */; };
 		43D59B1F2DDA6EA800250F98 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 43D59B1E2DDA6EA800250F98 /* RiveRuntime */; };
+		43E43D0A2E0381E7000256A0 /* Terms of Use.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E43D092E0381E7000256A0 /* Terms of Use.swift */; };
 		43F0C0022EAB000100000001 /* BarcodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F0C0012EAB000100000001 /* BarcodeService.swift */; };
 		43F0C0042EAB000100000001 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F0C0032EAB000100000001 /* BarcodeScannerView.swift */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		43CDA0262A8D85D8000BCA3B /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		43CDA02A2A8D8733000BCA3B /* ExcercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcercisesViewModel.swift; sourceTree = "<group>"; };
 		43CDA0362AA56D74000BCA3B /* LogedInUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedInUser.swift; sourceTree = "<group>"; };
+		43E43D092E0381E7000256A0 /* Terms of Use.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terms of Use.swift"; sourceTree = "<group>"; };
 		43F0C0012EAB000100000001 /* BarcodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeService.swift; sourceTree = "<group>"; };
 		43F0C0032EAB000100000001 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,6 +266,7 @@
 				4376F40D2C093E5A00937885 /* WorkOutWindow.swift */,
 				4376F40F2C09E91100937885 /* staringWorkWindow.swift */,
 				43F0C0032EAB000100000001 /* BarcodeScannerView.swift */,
+				43E43D092E0381E7000256A0 /* Terms of Use.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				43C27BFE2BF24A7300A73F0F /* FisrtWindow.swift in Sources */,
 				43C393A82C20981100060774 /* staringWorkWindow.swift in Sources */,
 				43C27C052BF2D5AC00A73F0F /* Gemini.swift in Sources */,
+				43E43D0A2E0381E7000256A0 /* Terms of Use.swift in Sources */,
 				43CDA0202A8D8444000BCA3B /* User.swift in Sources */,
 				43CDA0232A8D8547000BCA3B /* Constants.swift in Sources */,
 				4376F4092C02685C00937885 /* PersiatnceCalories.swift in Sources */,

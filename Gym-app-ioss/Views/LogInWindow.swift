@@ -60,7 +60,7 @@ struct LogInWindow: View {
                         
                         NavigationLink(destination: createUserWindow()) {
                             Text("New? Create Account").foregroundColor(.white)
-                        }.padding(.top)
+                        }.padding(.top).navigationBarBackButtonHidden()
                     }
                 }.navigationBarBackButtonHidden()
             }.navigationBarBackButtonHidden()

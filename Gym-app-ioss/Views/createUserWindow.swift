@@ -66,6 +66,7 @@ struct createUserWindow: View {
                             button.view().frame(width:  380, height: 48).overlay(Label("Create account", systemImage: "arrow.forward").foregroundStyle(Color.black).fontDesign(.rounded).offset(x:4, y:4)).onTapGesture {
                                 button.play(animationName: "active")
                                 Task{
+                                    self.email = email.uppercased()
                                     try await checkEmail(self.email)
                                 }
                             }
@@ -79,11 +80,13 @@ struct createUserWindow: View {
     
     func checkEmail(_ email: String) async throws -> Void {
 
-        guard let url = URL(string: "\(Constants.baseURL)\(EndPoints.users)/checkEmail?email=\(email)") else {
+       
+        
+        guard let url = URL(string: "\(Constants.baseURL)\(EndPoints.users)checkEmail?email=\(email)") else {
              print("error")
             return
         }
-        
+        print(url)
         if self.firstName == ""{
             self.nameEmpty = 1
         }
@@ -100,7 +103,7 @@ struct createUserWindow: View {
             self.wrongEmail = 1
             return
         }
-        self.email = email.uppercased()
+        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let response = response as? HTTPURLResponse {
                 switch response.statusCode {
@@ -108,8 +111,10 @@ struct createUserWindow: View {
                     wrongEmail = 1
                     print("found")
                 case 401:
+                    print("401")
                     wrongEmail = 0
                 default:
+                    print("unknown")
                     wrongEmail = 0
                 }
 
