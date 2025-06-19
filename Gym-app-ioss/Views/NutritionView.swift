@@ -390,8 +390,8 @@ func geminii() async throws {
     )
 
     
-    // Don't check your API key into source control!
-    let apiKey = "AIzaSyD_X7ymdkDp0goekMxVfD3lOsO1yTGSgkU"
+    // Retrieve API key from secure storage
+    let apiKey = APIKey.default
     
     
     let model = GenerativeModel(

@@ -52,8 +52,8 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "API_KEY=&quot;AIzaSyD_X7ymdkDp0goekMxVfD3lOsO1yTGSgkU&quot;"
-            isEnabled = "YES">
+            argument = "API_KEY="
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = ""
@@ -63,8 +63,8 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "API_KEY"
-            value = "AIzaSyD_X7ymdkDp0goekMxVfD3lOsO1yTGSgkU"
-            isEnabled = "YES">
+            value = ""
+            isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
