@@ -31,3 +31,13 @@ Enter any food item or scan its barcode and PowAI will retrieve the nutritional 
 ![Rest timer](https://github.com/user-attachments/assets/863eceba-4a7d-4dbe-bf15-8861dcccec22)
 
 Enjoy your workouts with **PowAI**!
+
+## User Data Policy and Disclaimer
+PowAI collects and stores your account details only to deliver in‑app features
+such as AI‑generated workouts, nutrition logs and live activity tracking.
+Workout and nutrition suggestions come from an AI model and **do not constitute
+licensed medical advice**. They are provided as a general guideline. Always
+consult a qualified healthcare professional before making significant changes to
+your diet or exercise routine. PowAI does not endorse any specific diet or
+exercise program, and your data will never be sold or repurposed for other
+services.
