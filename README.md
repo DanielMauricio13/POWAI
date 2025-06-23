@@ -1,6 +1,6 @@
 # PowAI
 
-PowAI is a Swift-based iOS fitness application that uses generative AI to build personalized workout plans and track daily nutrition. Create a profile, answer a brief questionnaire, and receive routines tailored to your goals and schedule.
+PowAI is a Swift-based iOS fitness application that uses generative AI to build personalized workout plans and track daily nutrition. Create a profile, answer a brief questionnaire, and receive routines tailored to your goals and schedule. To deploy or demo Contact me directly at danielmauriciovpinilla@hotmail.com
 
 ## Features
 - **Account creation and login** with JWT-based authentication.
